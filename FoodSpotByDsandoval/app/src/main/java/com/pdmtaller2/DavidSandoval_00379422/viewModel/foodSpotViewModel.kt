@@ -2,19 +2,18 @@ package com.pdmtaller2.DavidSandoval_00379422.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.pdmtaller2.DavidSandoval_00379422.data.modelo.*
-import com.pdmtaller2.DavidSandoval_00379422.data.repositorio.repositorioRestaurantes
+import com.pdmtaller2.DavidSandoval_00379422.data.repositorio.listaRestaurantes
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class foodSpotViewModel : ViewModel() {
 
-    private val _restaurantes = MutableStateFlow(repositorioRestaurantes.restaurantes)
+    private val _restaurantes = MutableStateFlow(listaRestaurantes.restaurantes)
     val restaurantes: StateFlow<List<Restaurante>> = _restaurantes
 
     private val _busqueda = MutableStateFlow("")
     val busqueda: StateFlow<String> = _busqueda
 
-    // Carrito de compras
     private val _carrito = MutableStateFlow<List<Orden>>(emptyList())
     val carrito: StateFlow<List<Orden>> = _carrito
 

@@ -25,7 +25,7 @@ fun menuScreen(viewModel: foodSpotViewModel, navController: NavController, resta
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(restaurante.nombre) },
+                title = { Text("Menú") },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
@@ -39,9 +39,21 @@ fun menuScreen(viewModel: foodSpotViewModel, navController: NavController, resta
             .padding(innerPadding)
             .padding(16.dp)) {
 
-            Text(text = restaurante.descripcion, style = MaterialTheme.typography.bodyMedium)
-
-            Spacer(modifier = Modifier.height(16.dp))
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp)
+            ) {
+                Text(
+                    text = restaurante.nombre,
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = restaurante.descripcion,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
 
             OutlinedTextField(
                 value = filtro,
@@ -51,6 +63,7 @@ fun menuScreen(viewModel: foodSpotViewModel, navController: NavController, resta
             )
 
             Spacer(modifier = Modifier.height(8.dp))
+
             LazyColumn {
                 items(platillosFiltrados.size) { index ->
                     platoCard(
@@ -59,10 +72,10 @@ fun menuScreen(viewModel: foodSpotViewModel, navController: NavController, resta
                             viewModel.agregarAlCarrito(platillosFiltrados[index], restaurante)
                             Toast.makeText(context, "${platillosFiltrados[index].nombre} agregado al carrito", Toast.LENGTH_SHORT).show()
                         }
-
                     )
                 }
             }
         }
+
     }
 }

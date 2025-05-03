@@ -1,6 +1,5 @@
 package com.pdmtaller2.DavidSandoval_00379422.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -44,15 +43,14 @@ private val LightColors = lightColorScheme(
     onSecondary = Color.White,
     background = Color(0xFFF8EAF6),
     onBackground = Color.Black,
-    surface = Color.White,
-    onSurface = Color.Black
+    surface = Color.Black,
+    onSurface = Color.White
 )
 
 
 @Composable
 fun FoodSpotByDsandovalTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {

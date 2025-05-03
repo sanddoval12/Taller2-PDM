@@ -25,7 +25,6 @@ fun homeScreen(viewModel: foodSpotViewModel, navController: NavController) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Encabezado: Título y eslogan centrado
         item {
             Column(
                 modifier = Modifier
@@ -45,8 +44,6 @@ fun homeScreen(viewModel: foodSpotViewModel, navController: NavController) {
                 )
             }
         }
-
-        // Secciones por categoría
         categorias.forEach { (categoria, listaRestaurantes) ->
             item {
                 Column {

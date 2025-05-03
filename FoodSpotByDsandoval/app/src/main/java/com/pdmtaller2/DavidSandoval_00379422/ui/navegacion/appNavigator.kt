@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.navigation.*
 import androidx.navigation.compose.*
 import com.pdmtaller2.DavidSandoval_00379422.ui.screens.*
 import com.pdmtaller2.DavidSandoval_00379422.viewModel.foodSpotViewModel

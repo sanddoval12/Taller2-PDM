@@ -1,13 +1,14 @@
 package com.pdmtaller2.DavidSandoval_00379422.ui.screens
 
-
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import com.pdmtaller2.DavidSandoval_00379422.ui.componentes.restauranteCard
 import com.pdmtaller2.DavidSandoval_00379422.ui.theme.MoradoFuturoPrimario
 import com.pdmtaller2.DavidSandoval_00379422.viewModel.foodSpotViewModel
@@ -38,13 +39,18 @@ fun busquedaScreen(viewModel: foodSpotViewModel, navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn {
-            items(resultados.size) { index ->
-                restauranteCard(resultados[index]) {
-                    navController.navigate("menu/${resultados[index].id}")
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(resultados) { restaurante ->
+                restauranteCard(restaurante) {
+                    navController.navigate("menu/${restaurante.id}")
                 }
             }
         }
     }
 }
-
